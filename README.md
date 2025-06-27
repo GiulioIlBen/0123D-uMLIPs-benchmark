@@ -7,3 +7,7 @@ uv run marimo run apps/errors_energy.py
 uv run marimo run apps/errors_geometry.py
 ```
 
+Example of the dashboard:
+<div align="center">
+    <img src="img/example_app.png" alt="0123D-benchmark"  width=700>
+<br>
