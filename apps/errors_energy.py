@@ -115,18 +115,19 @@ def _():
 
 @app.cell
 def _(df_deltas, dropdow_elements, dropdow_models, dropdow_yval):
-    if dropdow_elements.value not in atomic_numbers.keys():
+    element = dropdow_models.value
+    if element not in atomic_numbers.keys():
         data = df_deltas.query(f"uMLIPs=='{dropdow_models.value}'") 
         print(dropdow_elements.value + " not in elements allowed")
     else:
-        data = df_deltas.query(f"uMLIPs=='{dropdow_models.value}'") .query(f"formula.str.match(r'(?![a-z]){dropdow_elements.value}(?![a-z])')")
+        data = df_deltas.query(f"uMLIPs=='{dropdow_models.value}'") .query(f"formula.str.match(r'(?![a-z]){element}(?![a-z])')")
     scatter = mo.ui.plotly(px.scatter(
         data,
         x="energy [eV/atom]_PBE", 
         y=dropdow_yval.value, 
         color="id_dimension",hover_data=["mat_id", "id_dimension", "formula"],
     ))
-    return (scatter,)
+    return data, scatter
 
 
 @app.cell
@@ -194,6 +195,7 @@ def _(
     ax_size,
     control_rotations,
     control_subplots,
+    data,
     dropdow_elements,
     dropdow_models,
     dropdow_yval,
@@ -202,11 +204,14 @@ def _(
     rotation_dict,
     scatter,
 ):
+    mae_energy = data.delta_EnMLIP_minus_EnPBE_eVatoms.abs().mean()
+    rmse_energy = ((data.delta_EnMLIP_minus_EnPBE_eVatoms.abs()**2).sum() / len(data)) **0.5
     mo.vstack(
         [
             dropdow_models,
             dropdow_yval,
             dropdow_elements,
+            mo.md(f"MAE: {mae_energy:0.3f}, RMSE: {rmse_energy:0.3f} eV/atoms"),
             scatter,
             control_subplots,
             plot_agms(

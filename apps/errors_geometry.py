@@ -1,16 +1,19 @@
 # /// script
 # requires-python = ">=3.12"
 # dependencies = [
-#     "ase>=3.25.0",
+#     "ase==3.25.0",
 #     "jinja2>=3.1.6",
 #     "marimo>=0.13.8",
-#     "plotly>=6.0.1",
-#     "seaborn>=0.13.2",
+#     "matplotlib==3.10.3",
+#     "pandas==2.3.0",
+#     "plotly==6.2.0",
+#     "seaborn==0.13.2",
 # ]
 # ///
+
 import marimo
 
-__generated_with = "0.13.8"
+__generated_with = "0.14.8"
 app = marimo.App(width="full")
 
 with app.setup:
@@ -32,7 +35,7 @@ def _():
 
 @app.cell
 def _():
-    df_pred = pd.read_csv("public/df_deltas_XYZ.csv").rename(columns={"id_theory":"uMLIPs"})
+    df_pred = pd.read_csv(mo.notebook_dir()/"public/df_deltas_XYZ.csv").rename(columns={"id_theory":"uMLIPs"})
     return (df_pred,)
 
 
@@ -120,7 +123,7 @@ def _(df_deltas, dropdow_elements, dropdow_models):
         y="MAE_XYZ", 
         color="id_dimension",hover_data=["mat_id", "id_dimension", "formula"],
     ))
-    return (scatter,)
+    return data, scatter
 
 
 @app.cell
@@ -188,6 +191,7 @@ def _(
     ax_size,
     control_rotations,
     control_subplots,
+    data,
     dropdow_elements,
     dropdow_models,
     max_sample,
@@ -195,11 +199,14 @@ def _(
     rotation_dict,
     scatter,
 ):
+    mae_geom = data.MAE_XYZ.abs().mean()
+    rmse_geom = ((data.MAE_XYZ.abs()**2).sum() / len(data)) **0.5
     mo.vstack(
         [
             dropdow_models,
             # dropdow_yval,
             dropdow_elements,
+            mo.md(f"MAE: {mae_geom:0.3f}, RMSE: {rmse_geom:0.3f} Ang"),
             scatter,
             control_subplots,
             plot_agms(
