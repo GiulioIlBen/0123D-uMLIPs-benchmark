@@ -16,7 +16,7 @@ uv run marimo run apps/errors_energy.py
 uv run marimo run apps/errors_geometry.py
 ```
 
-To edit the source code:
+To edit the notebooks:
 ```bash
 uv run marimo edit apps/
 ```
