@@ -16,4 +16,9 @@ uv run marimo run apps/errors_energy.py
 uv run marimo run apps/errors_geometry.py
 ```
 
+To edit the source code:
+```bash
+uv run marimo edit apps/
+```
+
 Install uv: https://docs.astral.sh/uv/getting-started/installation/

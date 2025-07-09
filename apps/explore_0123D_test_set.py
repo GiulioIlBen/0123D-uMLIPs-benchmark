@@ -1,10 +1,13 @@
 # /// script
 # requires-python = ">=3.12"
 # dependencies = [
-#     "ase>=3.25.0",
+#     "ase==3.25.0",
 #     "jinja2>=3.1.6",
 #     "marimo>=0.13.8",
-#     "plotly>=6.0.1",
+#     "matplotlib==3.10.3",
+#     "numpy==2.3.1",
+#     "pandas==2.3.1",
+#     "plotly==6.2.0",
 #     "seaborn>=0.13.2",
 # ]
 # ///
