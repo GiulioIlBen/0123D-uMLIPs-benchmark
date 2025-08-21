@@ -3,7 +3,7 @@
 Explore in details the 0123D benchmark.
 
 <div align="center">
-    <img src="img/example_app.png" alt="0123D-benchmark"  width=700>
+    <img src="img/into.gif" alt="0123D-benchmark"  width=700>
 </div>
 
 

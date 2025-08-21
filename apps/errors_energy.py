@@ -115,12 +115,11 @@ def _():
 
 @app.cell
 def _(df_deltas, dropdow_elements, dropdow_models, dropdow_yval):
-    element = dropdow_models.value
-    if element not in atomic_numbers.keys():
+    if dropdow_elements.value not in atomic_numbers.keys():
         data = df_deltas.query(f"uMLIPs=='{dropdow_models.value}'") 
         print(dropdow_elements.value + " not in elements allowed")
     else:
-        data = df_deltas.query(f"uMLIPs=='{dropdow_models.value}'") .query(f"formula.str.match(r'(?![a-z]){element}(?![a-z])')")
+        data = df_deltas.query(f"uMLIPs=='{dropdow_models.value}'") .query(f"formula.str.match(r'(?![a-z]){dropdow_elements.value}(?![a-z])')")
     scatter = mo.ui.plotly(px.scatter(
         data,
         x="energy [eV/atom]_PBE", 
