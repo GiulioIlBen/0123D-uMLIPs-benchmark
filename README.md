@@ -22,3 +22,19 @@ uv run marimo edit apps/
 ```
 
 Install uv: https://docs.astral.sh/uv/getting-started/installation/
+
+# How to cite
+
+Use the following BibTeX entry:
+```
+@misc{benedini2025universalmachinelearningpotential,
+      title={Universal Machine Learning Potential for Systems with Reduced Dimensionality}, 
+      author={Giulio Benedini and Antoine Loew and Matti Hellstrom and Silvana Botti and Miguel A. L. Marques},
+      year={2025},
+      eprint={2508.15614},
+      archivePrefix={arXiv},
+      primaryClass={cond-mat.mtrl-sci},
+      url={https://arxiv.org/abs/2508.15614}, 
+}
+```
+
