@@ -1,5 +1,7 @@
 # 0123D benchmark
 
+[![arXiv](https://img.shields.io/badge/arXiv-2501.16051-lightgrey)]([https://arxiv.org/abs/2501.16051](https://arxiv.org/abs/2508.15614))
+
 Explore in details the 0123D benchmark.
 
 <div align="center">
