@@ -24,6 +24,9 @@ uv run marimo edit apps/
 ```
 
 Install uv: https://docs.astral.sh/uv/getting-started/installation/
+Access to the ase db: `uv run ase db apps/public/0123D_pbe.db`
+If this error `ase: error: OperationalError: no such column: "systems" - should this be a string literal in single-quotes?` is raised try to downgrade sql_version: `conda install -c conda-forge "sqlite=3.36.*"`
+
 
 # How to cite
 
