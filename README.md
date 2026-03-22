@@ -1,6 +1,6 @@
 # 0123D benchmark
 
-[![arXiv](https://img.shields.io/badge/arXiv-2501.16051-lightgrey)]([https://arxiv.org/abs/2501.16051](https://arxiv.org/abs/2508.15614))
+[![DOI](https://img.shields.io/badge/DOI-10.1088/3050--287X/ae1208-blue)](https://doi.org/10.1088/3050-287X/ae1208)
 
 Explore in details the 0123D benchmark.
 
@@ -9,7 +9,7 @@ Explore in details the 0123D benchmark.
 </div>
 
 
-# How to run
+## How to run
 
 There are different pages, for each one you do:
 ```bash
@@ -28,18 +28,10 @@ Access to the ase db: `uv run ase db apps/public/0123D_pbe.db`
 If this error `ase: error: OperationalError: no such column: "systems" - should this be a string literal in single-quotes?` is raised try to downgrade sql_version: `conda install -c conda-forge "sqlite=3.36.*"`
 
 
-# How to cite
+## How to cite
 
-Use the following BibTeX entry:
-```
-@misc{benedini2025universalmachinelearningpotential,
-      title={Universal Machine Learning Potential for Systems with Reduced Dimensionality}, 
-      author={Giulio Benedini and Antoine Loew and Matti Hellstrom and Silvana Botti and Miguel A. L. Marques},
-      year={2025},
-      eprint={2508.15614},
-      archivePrefix={arXiv},
-      primaryClass={cond-mat.mtrl-sci},
-      url={https://arxiv.org/abs/2508.15614}, 
-}
-```
+If you use this work, please cite:
+
+[![DOI](https://img.shields.io/badge/DOI-10.1088/3050--287X/ae1208-blue)](https://doi.org/10.1088/3050-287X/ae1208)
+
 
